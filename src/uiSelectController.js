@@ -432,7 +432,12 @@ uis.controller('uiSelectCtrl',
         }
         _resetSearchInput();
         $scope.$broadcast('uis:select', item);
-        
+
+        if (ctrl.clickTriggeredSelect) {
+          $event.stopPropagation();
+        }
+
+
         if (ctrl.closeOnSelect) {
           ctrl.close(skipFocusser);
         }

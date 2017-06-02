@@ -716,6 +716,10 @@ uis.controller('uiSelectCtrl',
         var locals = {};
         locals[ctrl.parserResult.itemName] = item;
 
+        if (ctrl.clickTriggeredSelect) {
+          $event.stopPropagation();
+        }
+
         $timeout(function(){
           ctrl.onSelectCallback($scope, {
             $item: item,
